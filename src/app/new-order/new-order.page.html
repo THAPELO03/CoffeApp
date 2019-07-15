@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title id="head" style="text-align: center">Please make your order..</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+    
+        <div *ngFor="let list of Coffee" style="text-align:unset;">
+          <img height="150" width="200" src="\assets\types\{{list.cofiPic}}">
+
+          <p>
+            {{list.cofiName}}
+            R{{list.cofiPrice}}
+          </p>
+          <ion-button [routerLink]="['/place-order']" (click)="getName(list)">place order</ion-button>
+        
+        </div>
+    
+  
+ 
+</ion-content>

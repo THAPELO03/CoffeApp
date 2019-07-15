@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title id="head" style="text-align: center">Please place your order and put your extras!...</ion-title>
+  </ion-toolbar>
+</ion-header >
+
+<ion-content >
+  <ion-list>
+   Product name: {{Name}}
+
+   
+   <ion-radio-group (ionChange) = "setSugar($event)" (click) = "getMakeOrder()">
+      <ion-list-header>
+        <ion-label>Sugar</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>1 Spoons</ion-label>
+        <ion-radio slot="start" value= 1 checked></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>2 Spoons</ion-label>
+        <ion-radio slot="start" value= 2></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>3 Spoons</ion-label>
+        <ion-radio slot="start" value=  3></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-list>
+      <ion-radio-group (ionChange) = "setMilk($event)">
+        <ion-list-header>
+          <ion-label>Milk</ion-label>
+        </ion-list-header>
+    
+        <ion-item>
+          <ion-label>Yes</ion-label>
+          <ion-radio slot="start" value="Yes" checked></ion-radio>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label>No</ion-label>
+          <ion-radio slot="start" value="No"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Quantity</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+
+        <td>
+          <ion-button shape="round" style = "width: 70px;" (click) = "getDecrementQuantity();getTotal()">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </td>
+        <td style = "margin-left: 10px; margin-right: 10px;">{{Quantity}}</td>
+        <td>
+          <ion-button shape="round" style = "width: 70px;" (click) = "getIncrementQuantity();getTotal()">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </td>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-item>
+      Total: R{{Price}}
+    </ion-item>
+
+    <ion-item>
+      <ion-button color="primary" (click)="MadeOrder()">Order</ion-button>
+    </ion-item>
+    <div style="background-color:rgb(82, 55, 7);color: white" *ngFor = "let newOrder of Orders">
+      <h1>Order Details..</h1>
+      <img height="150" width="200" src="\assets\types\{{newOrder.cofiPic}}">
+          <h4>Product Name: {{newOrder.cofiName}}</h4>
+          <h4>Product Quantity: {{newOrder.cofiQuantity}}</h4>
+          <h4>Total Price: R{{newOrder.cofiPrice}}</h4>
+          <h4>Milk: {{newOrder.cofimilk}}</h4>
+          <h4>Sugar: {{newOrder.cofisugar}} spoons</h4>
+   </div>    
+  </ion-content>
+    
+  
+
+
